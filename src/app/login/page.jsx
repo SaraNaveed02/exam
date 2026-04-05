@@ -1,10 +1,10 @@
 "use client";
 import React, { useState } from "react";
-import { supabase } from "../compoments/supabase";
 import { useRouter } from "next/navigation";
+import { supabase } from "../compoments/supabase";
 import { useUser } from "../compoments/ContentApi";
 
-const page = () => {
+const Loginpage = () => {
   const {setUserId} = useUser()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -52,4 +52,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Loginpage;
