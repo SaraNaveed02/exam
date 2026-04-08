@@ -1,8 +1,6 @@
 import React from 'react'
 
-
-
-const Attendance = () => {
+const Settingpage = () => {
   return (
     <div>
       
@@ -10,4 +8,4 @@ const Attendance = () => {
   )
 }
 
-export default Attendance
+export default Settingpage
