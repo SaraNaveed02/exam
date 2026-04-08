@@ -8,10 +8,8 @@ const Courses = () => {
   const [des, setdes] = useState("");
   const [courses, setCourses] = useState([]);
 
-  // Helper to check if the deadline has passed
   const isOverdue = (dateString) => {
     const today = new Date();
-    // Set time to 00:00:00 to compare dates accurately without hours/minutes interference
     today.setHours(0, 0, 0, 0);
     const courseDate = new Date(dateString);
     return courseDate < today;

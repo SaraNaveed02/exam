@@ -16,7 +16,7 @@ export const Navbar = () => {
       {/* Menu */}
       <ul className="hidden md:flex gap-8 text-gray-700 font-medium">
      
-          <li onClick={() => router.push("/student/profile")} className="cursor-pointer hover:text-blue-600 transition">
+          <li onClick={() => router.push("/student")} className="cursor-pointer hover:text-blue-600 transition">
             Profile
           </li>
        
