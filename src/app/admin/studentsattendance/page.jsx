@@ -1,5 +1,6 @@
 "use client";
 import { useUser } from "@/app/compoments/ContentApi";
+import { AdminSidebar } from "@/app/compoments/navbar";
 import { supabase } from "@/app/compoments/supabase";
 import React, { useEffect } from "react";
 import { useState } from "react";
@@ -98,6 +99,7 @@ const AttendanceListPage = () => {
 
   return (
     <div className="p-10 max-w-2xl mx-auto">
+      <AdminSidebar/>
       <h2 className="text-2xl font-bold mb-6">
         Admin: Mark Student Attendance
       </h2>

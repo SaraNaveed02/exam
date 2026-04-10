@@ -30,7 +30,7 @@ const Loginpage = () => {
         router.push("/student");
       }
     } else {
-      alert("Invalid email or password");
+      alert(error?.message);
       console.error(error?.message);
     }
   };

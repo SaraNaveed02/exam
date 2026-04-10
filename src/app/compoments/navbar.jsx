@@ -38,46 +38,36 @@ export const Navbar = () => {
 
 
 export const AdminSidebar = () => {
+  const router = useRouter();
 
-    const router = useRouter();
+  const item =
+    "flex items-center gap-3 px-4 py-3 rounded-lg cursor-pointer hover:bg-slate-800 transition";
 
   return (
-    <aside className="h-screen w-64 bg-slate-900 text-white fixed left-0 top-0 shadow-lg">
-      
-      {/* Logo / Title */}
+    <aside className="h-screen w-64 bg-slate-900 text-white shadow-lg">
       <div className="p-6 border-b border-slate-700">
         <h1 className="text-2xl font-bold">Admin Panel</h1>
       </div>
 
-      {/* Menu */}
       <nav className="p-4">
         <ul className="space-y-2">
-
-          <li onClick={()=>router.push('/admin')} className="sidebarItem">
-            <Home size={18} />
-            <span>Home</span>
+          <li onClick={()=>router.push('/admin')} className={item}>
+            <Home size={18} /> Home
           </li>
 
-          <li   onClick={()=>router.push('/admin/studentslist')} className="sidebarItem">
-            <Users size={18} />
-            <span>Students</span>
+          <li onClick={()=>router.push('/admin/studentslist')} className={item}>
+            <Users size={18} /> Students
           </li>
 
-          <li   onClick={()=>router.push('/admin/courseslist')} className="sidebarItem">
-            <BookOpen size={18} />
-            <span>Courses</span>
+          <li onClick={()=>router.push('/admin/courseslist')} className={item}>
+            <BookOpen size={18} /> Courses
           </li>
 
-          <li   onClick={()=>router.push('/admin/studentsattendance')} className="sidebarItem">
-            <ClipboardCheck size={18} />
-            <span>Attendance</span>
+          <li onClick={()=>router.push('/admin/studentsattendance')} className={item}>
+            <ClipboardCheck size={18} /> Attendance
           </li>
 
-          <li   onClick={()=>router.push('/admin/settings')} className="sidebarItem">
-            <Settings size={18} />
-            <span>Settings</span>
-          </li>
-
+        
         </ul>
       </nav>
     </aside>
