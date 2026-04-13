@@ -8,7 +8,7 @@ const SignUpPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [role, setRole] = useState("user");
+  const [role, setRole] = useState("student");
   const router = useRouter();
 
   const handleSignup = async (e) => {
@@ -71,7 +71,7 @@ const SignUpPage = () => {
             value={role}
             onChange={(e) => setRole(e.target.value)}
           >
-            <option value="user">Student</option>
+            <option value="student">Student</option>
             <option value="admin">Admin</option>
           </select>
 

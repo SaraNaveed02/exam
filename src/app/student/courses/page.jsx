@@ -39,7 +39,6 @@ const CoursesPage = () => {
 
   return (
     <div className="flex min-h-dvh flex-col bg-slate-50">
-      <Navbar />
       <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] sm:px-6 sm:py-6">
         <h1 className="text-xl font-bold text-gray-900 sm:text-2xl">
           Available courses

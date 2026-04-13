@@ -65,7 +65,8 @@ const LandingPage = () => {
             alt="SMIT"
             width={500}
             height={400}
-            className="rounded-2xl shadow-xl"
+            priority
+            className="h-auto w-auto max-w-full rounded-2xl shadow-xl"
           />
         </div>
       </section>
@@ -138,16 +139,7 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-16 px-10 md:px-20 bg-blue-50">
-        <h2 className="text-3xl font-bold text-center mb-10 text-blue-700">Contact Us</h2>
-        <form className="max-w-xl mx-auto bg-white p-8 rounded-2xl shadow-md space-y-6">
-          <input type="text" placeholder="Your Name" className="w-full border p-3 rounded-lg" />
-          <input type="email" placeholder="Your Email" className="w-full border p-3 rounded-lg" />
-          <textarea placeholder="Your Message" className="w-full border p-3 rounded-lg min-h-[100px]" />
-          <button type="submit" className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">Send Message</button>
-        </form>
-      </section>
+    
 
       {/* Footer */}
       <footer className="bg-blue-900 text-white py-6 px-10 md:px-20 text-center mt-10 rounded-t-2xl">

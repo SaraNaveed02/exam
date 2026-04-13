@@ -5,12 +5,14 @@ const UserContent = createContext();
 
 export const ContentApi = ({ children }) => {
   const [userId, setUserId] = useState(null);
+
   useEffect(() => {
-    const GetsavedId = localStorage.getItem("currentUser"); // localStorage se user id get ki 
+    const GetsavedId = localStorage.getItem("currentUser");
     if (GetsavedId) {
-      setUserId(GetsavedId); // agr id ho tu state me set kardo
+      setUserId(GetsavedId);
     }
-  });
+  }, []);
+
   return (
     <UserContent.Provider value={{ userId, setUserId }}>
       {children}

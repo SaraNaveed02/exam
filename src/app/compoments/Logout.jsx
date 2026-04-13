@@ -1,17 +1,27 @@
+"use client";
+
 import React from "react";
 import { supabase } from "./supabase";
 import { useRouter } from "next/navigation";
+import { useUser } from "./ContentApi";
 
-const logout = () => {
-    const router = useRouter();
+const Logout = () => {
+  const router = useRouter();
+  const { setUserId } = useUser();
+
   const handleLogout = async () => {
-    const { error } = await supabase.auth.signOut();
-    if (error) {
-      console.error("Error signing out:", error.message);
-    }else{
-        router.push("/");
+    try {
+      await supabase.auth.signOut();
+    } catch (_error) {
+      // We keep logout resilient even if Supabase auth session does not exist.
+    } finally {
+      localStorage.removeItem("currentUser");
+      localStorage.removeItem("currentUserRole");
+      setUserId(null);
+      router.replace("/login");
     }
   };
+
   return (
     <div>
       <button
@@ -24,4 +34,4 @@ const logout = () => {
   );
 };
 
-export default logout;
+export default Logout;

@@ -10,23 +10,26 @@ const AdminDashboard = () => {
   const router = useRouter();
   const [studentCount, setStudentCount] = useState(null);
   const [courseCount, setCourseCount] = useState(null);
+  const [attendanceCount, setAttendanceCount] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadCounts = async () => {
       setLoading(true);
-      const [studentsRes, coursesRes] = await Promise.all([
+      const [studentsRes, coursesRes, attendanceRes] = await Promise.all([
         supabase
           .from("users")
           .select("id", { count: "exact", head: true })
           .neq("role", "admin"),
         supabase.from("courses").select("id", { count: "exact", head: true }),
+        supabase.from("attendance").select("id", { count: "exact", head: true }),
       ]);
 
       setStudentCount(
         studentsRes.error ? 0 : studentsRes.count ?? 0,
       );
       setCourseCount(coursesRes.error ? 0 : coursesRes.count ?? 0);
+      setAttendanceCount(attendanceRes.error ? 0 : attendanceRes.count ?? 0);
       setLoading(false);
     };
 
@@ -52,12 +55,11 @@ const AdminDashboard = () => {
     },
     {
       title: "Attendance",
-      value: null,
+      value: attendanceCount,
       description: "Mark or update student attendance",
       icon: ClipboardCheck,
       href: "/admin/studentsattendance",
       accent: "from-violet-500 to-violet-600",
-      hideCount: true,
     },
   ];
 
@@ -80,7 +82,6 @@ const AdminDashboard = () => {
               icon: Icon,
               href,
               accent,
-              hideCount,
             }) => (
               <button
                 key={href}
@@ -94,16 +95,9 @@ const AdminDashboard = () => {
                   <Icon size={24} />
                 </div>
                 <h2 className="text-lg font-semibold text-gray-900">{title}</h2>
-                {!hideCount && (
-                  <p className="mt-2 text-3xl font-bold text-gray-900 tabular-nums">
-                    {loading ? "…" : value}
-                  </p>
-                )}
-                {hideCount && (
-                  <p className="mt-2 text-sm font-medium text-gray-700">
-                    Open attendance
-                  </p>
-                )}
+                <p className="mt-2 text-3xl font-bold text-gray-900 tabular-nums">
+                  {loading ? "…" : value}
+                </p>
                 <p className="mt-2 text-sm text-gray-500">{description}</p>
               </button>
             ),

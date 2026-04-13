@@ -10,6 +10,7 @@ const Loginpage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
+  const normalizeRole = (role) => (role === "user" ? "student" : role);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -24,7 +25,9 @@ const Loginpage = () => {
     if (data) {
       setUserId(data.id);
       localStorage.setItem("currentUser", data.id);
-      if(data.role === "admin"){
+      const role = normalizeRole(data.role);
+      localStorage.setItem("currentUserRole", role);
+      if(role === "admin"){
         router.push("/admin");
       } else {
         router.push("/student");

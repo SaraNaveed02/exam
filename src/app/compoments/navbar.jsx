@@ -9,6 +9,7 @@ import {
   ClipboardCheck,
   X,
   Menu,
+  MessageCircle,
 } from "lucide-react";
 
 export const Navbar = () => {
@@ -45,6 +46,12 @@ export const Navbar = () => {
             className={linkClass}
           >
             Attendance
+          </li>
+          <li
+            onClick={() => router.push("/student/contactUs")}
+            className={linkClass}
+          >
+            Contact Us
           </li>
         </ul>
 
@@ -91,6 +98,15 @@ export const Navbar = () => {
                 onClick={() => go("/student/attendance")}
               >
                 Attendance
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                className="w-full rounded-lg px-3 py-3 text-left text-base font-medium text-gray-800 hover:bg-gray-50"
+                onClick={() => go("/student/contactUs")}
+              >
+                Contact Us
               </button>
             </li>
           </ul>
@@ -148,6 +164,9 @@ export const AdminSidebar = ({ onNavigate }) => {
 
           <li onClick={() => go("/admin/studentsattendance")} className={item}>
             <ClipboardCheck size={18} /> Attendance
+          </li>
+          <li onClick={() => go("/admin/contactPage")} className={item}>
+            <MessageCircle size={18} /> Contact Us
           </li>
         </ul>
         <div className="mt-auto shrink-0 border-t border-slate-700 pt-4 [&_button]:w-full">
