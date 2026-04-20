@@ -20,11 +20,20 @@ const Loginpage = () => {
       .select("*")
       .eq("email", email)
       .eq("password", password)
-  .maybeSingle();
-    if (data) {
-      setUserId(data.id);
-      localStorage.setItem("currentUser", data.id);
-      const role = normalizeRole(data.role);
+      .limit(1);
+
+    const user = data?.[0];
+
+    if (error) {
+      alert(error.message);
+      console.error(error.message);
+      return;
+    }
+
+    if (user) {
+      setUserId(user.id);
+      localStorage.setItem("currentUser", user.id);
+      const role = normalizeRole(user.role);
       localStorage.setItem("currentUserRole", role);
       if(role === "admin"){
         router.push("/admin");
@@ -32,8 +41,8 @@ const Loginpage = () => {
         router.push("/student");
       }
     } else {
-      alert(error?.message);
-      console.error(error?.message);
+      alert("Invalid email or password");
+      console.error("Invalid email or password");
     }
   };
 
