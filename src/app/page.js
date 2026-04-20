@@ -4,7 +4,7 @@ import LandingPage from "./compoments/LandingPage";
 export default function Home() {
   return (
    <div>
-    
+  
     <LandingPage/>
    </div>
   );

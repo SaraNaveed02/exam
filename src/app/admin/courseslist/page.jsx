@@ -63,7 +63,6 @@ const Courses = () => {
   };
 
   return (
-    <AdminLayout>
       <div className="px-2 sm:px-4 py-4 max-w-screen mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
           
@@ -147,7 +146,6 @@ const Courses = () => {
           </div>
         </div>
       </div>
-    </AdminLayout>
   );
 };
 

@@ -58,7 +58,7 @@ const AttendanceListPage = () => {
     setLoading(false);
   };
 
-  const updateAttendance = async () => {
+    const updateAttendance = async () => {
     const pre = parseInt(present) || 0;
     const abs = parseInt(absent) || 0;
     const lea = parseInt(leave) || 0;
@@ -89,7 +89,7 @@ const AttendanceListPage = () => {
   const currentTotal = pre + abs + lea;
 
   return (
-    <AdminLayout>
+    
       <div className="mx-auto max-w-2xl">
         <h2 className="text-xl font-bold text-gray-900 sm:text-2xl">
           Mark student attendance
@@ -186,7 +186,6 @@ const AttendanceListPage = () => {
           </div>
         </div>
       </div>
-    </AdminLayout>
   );
 };
 

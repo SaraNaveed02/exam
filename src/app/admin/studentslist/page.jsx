@@ -29,7 +29,6 @@ const StudentsListPage = () => {
   }, []);
 
   return (
-    <AdminLayout>
       <div>
         <h1 className="text-xl font-bold text-gray-900 sm:text-2xl">
           Students
@@ -75,7 +74,6 @@ const StudentsListPage = () => {
           )}
         </div>
       </div>
-    </AdminLayout>
   );
 };
 

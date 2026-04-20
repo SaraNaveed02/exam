@@ -20,8 +20,7 @@ const Loginpage = () => {
       .select("*")
       .eq("email", email)
       .eq("password", password)
-      .single();
-
+  .maybeSingle();
     if (data) {
       setUserId(data.id);
       localStorage.setItem("currentUser", data.id);

@@ -64,7 +64,6 @@ const AdminDashboard = () => {
   ];
 
   return (
-    <AdminLayout>
       <div>
         <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
           Dashboard
@@ -104,7 +103,6 @@ const AdminDashboard = () => {
           )}
         </div>
       </div>
-    </AdminLayout>
   );
 };
 
